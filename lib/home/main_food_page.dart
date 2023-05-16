@@ -36,7 +36,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
           ],
         ),
       ),
-      body: FoodPageBody(),
+      body: const FoodPageBody(),
     );
   }
 }

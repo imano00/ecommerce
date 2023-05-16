@@ -1,6 +1,8 @@
 import 'package:core_management_v2/core_management_v2.dart';
+import 'package:ecommerce/animations/five_star_rating_rive.dart';
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
@@ -24,6 +26,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   }
 
   Widget _buildPageItem(int index) {
+    final ThemeData themeData = context.themeData;
+
     return Stack(
       children: [
         Container(
@@ -38,24 +42,53 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           alignment: Alignment.bottomCenter,
           //TODO try using card
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 100,
-              margin: const EdgeInsets.only(left: 5, right: 5),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: AppColors.yellowColor,
-              ),
-              child: const Align(
-                  alignment: Alignment.center,
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                child: Container(
+                  height: double.infinity,
+                  margin: const EdgeInsets.only(left: 5, right: 5),
+                  width: double.infinity,
+                  color: AppColors.mainBlackColor,
                   child: Column(
                     children: [
-                      Text("Ini info box"),
+                      const Text("Ini info box"),
+                      // FiveStarRatingRive(),
+                      Row(
+                        children: [
+                          Wrap(
+                            children: List.generate(
+                              5,
+                              (index) => const Icon(
+                                Icons.star,
+                                color: AppColors.mainColor,
+                                size: 15,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              "4.5",
+                              style: themeData.textTheme.titleMedium!
+                                  .copyWith(color: AppColors.mainColor),
+                            ),
+                          ),
+                          const Divider(),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              "1287 comments",
+                              style: themeData.textTheme.titleMedium!
+                                  .copyWith(color: AppColors.mainColor),
+                            ),
+                          ),
+                          Row(children: [],)
+                        ],
+                      )
                     ],
-                  )),
-            ),
-          ),
+                  ),
+                ),
+              )),
         ),
       ],
     );
