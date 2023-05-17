@@ -30,7 +30,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Country", style: themeData.textTheme.titleMedium!.copyWith(color: AppColors.mainColor),),
-                Text("City", style: themeData.textTheme.titleSmall!.copyWith(color: AppColors.mainColor),),
+                Text("City", style: themeData.textTheme.titleSmall!.copyWith(color: AppColors.textNearlyBlack),),
               ],
             ),
           ],
