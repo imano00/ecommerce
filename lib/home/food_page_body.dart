@@ -14,6 +14,17 @@ class FoodPageBody extends StatefulWidget {
 
 class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
+  var currentPage = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController.addListener(() {
+      setState(() {
+        currentPage = pageController.page!;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +48,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             borderRadius: BorderRadius.circular(30),
             color: index.isEven ? AppColors.grey : AppColors.mainBlackColor,
             //TODO add images here
-            image: const DecorationImage(
-              image: AssetImage(
-                "assets/images/pexels-cats-coming-920220.jpg"
-              )
-            )
+            // image: const DecorationImage(
+            //   image: AssetImage(
+            //     "assets/images/pexels-cats-coming-920220.jpg"
+            //   )
+            // )
           ),
         ),
         Align(

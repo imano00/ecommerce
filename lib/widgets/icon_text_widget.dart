@@ -5,14 +5,14 @@ class IconTextWidget extends StatelessWidget {
   final IconData icon;
   final String text;
   final Color? textColor;
-  final Color iconColor;
+  final Color? iconColor;
 
   const IconTextWidget(
       {Key? key,
       required this.icon,
       required this.text,
       this.textColor,
-      required this.iconColor})
+      this.iconColor})
       : super(key: key);
 
   @override
@@ -23,13 +23,11 @@ class IconTextWidget extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: iconColor,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Text(
               text,
-              style: TextStyle(color: textColor ?? AppColors.grey),
             ),
           )
         ],
