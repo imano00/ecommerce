@@ -93,7 +93,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               child: Text(
                                 "1287 comments",
                                 style: themeData.textTheme.titleMedium!
-                                    .copyWith(color: AppColors.mainColor),
+                                    .copyWith(color: AppColors.mainColor,),
                               ),
                             ),
                           ],
