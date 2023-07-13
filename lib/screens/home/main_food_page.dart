@@ -1,10 +1,10 @@
 import 'package:core_management_v2/core_management_v2.dart';
-import 'package:ecommerce/home/food_page_body.dart';
+import 'package:ecommerce/screens/home/food_page_body.dart';
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class MainFoodPage extends StatefulWidget {
-  const MainFoodPage({Key? key}) : super(key: key);
+  MainFoodPage({Key? key}) : super(key: key);
 
   @override
   State<MainFoodPage> createState() => _MainFoodPageState();
@@ -36,7 +36,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
           ],
         ),
       ),
-      body: const FoodPageBody(),
+      body: FoodPageBody(),
     );
   }
 }
