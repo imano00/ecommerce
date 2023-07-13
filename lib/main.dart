@@ -1,5 +1,6 @@
-import 'package:ecommerce/screens/home/main_food_page.dart';
+import 'package:ecommerce/home/main_food_page.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce/services/route_service.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,15 +12,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: RouteService().router,
+      routerDelegate: RouteService().router.routerDelegate,
+      routeInformationParser: RouteService().router.routeInformationParser,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        colorSchemeSeed: const Color.fromRGBO(188, 0, 74, 1.0),
       ),
-      home: MainFoodPage(),
     );
   }
 }

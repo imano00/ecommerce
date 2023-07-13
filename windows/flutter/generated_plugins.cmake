@@ -3,8 +3,9 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  file_selector_windows
+  dynamic_color
   firebase_core
+  isar_flutter_libs
   rive_common
 )
 
