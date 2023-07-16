@@ -9,10 +9,10 @@ class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
 
   @override
-  State<FoodPageBody> createState() => _FoodPageBodyState();
+  State<FoodPageBody> createState() => FoodPageBodyState();
 }
 
-class _FoodPageBodyState extends State<FoodPageBody> {
+class FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
   var currentPage = 0.0;
 
@@ -39,90 +39,69 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   Widget _buildPageItem(int index) {
     final ThemeData themeData = context.themeData;
+    final size = MediaQuery.of(context).size;
 
-    return Stack(
-      children: [
-        Container(
-          margin: const EdgeInsets.only(left: 5, right: 5),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: index.isEven ? AppColors.grey : AppColors.mainBlackColor,
-            //TODO add images here
-            // image: const DecorationImage(
-            //   image: AssetImage(
-            //     "assets/images/pexels-cats-coming-920220.jpg"
-            //   )
-            // )
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Card(
-              child: Column(
+    return Container(
+      height: size.height * 0.3,
+      color: Colors.amber,
+      child: Column(
+        children: [
+          const Text("Ini info box"),
+          // FiveStarRatingRive(),
+          LayoutBuilder(builder: (context, constraints) {
+            return Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+              child: Row(
                 children: [
-                  const Text("Ini info box"),
-                  // FiveStarRatingRive(),
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                        child: Row(
-                          children: [
-                            Wrap(
-                              children: List.generate(
-                                5,
-                                (index) => const Icon(
-                                  Icons.star,
-                                  color: AppColors.mainColor,
-                                  size: 15,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: Text(
-                                "4.5",
-                                style: themeData.textTheme.titleMedium!
-                                    .copyWith(color: AppColors.mainColor),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: Text(
-                                "1287 comments",
-                                style: themeData.textTheme.titleMedium!
-                                    .copyWith(color: AppColors.mainColor,),
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    }
+                  Wrap(
+                    children: List.generate(
+                      5,
+                      (index) => const Icon(
+                        Icons.star,
+                        color: AppColors.mainColor,
+                        size: 15,
+                      ),
+                    ),
                   ),
-                  const Row(
-                    children: [
-                      IconTextWidget(
-                          icon: Icons.circle_sharp,
-                          text: "Normal",
-                          iconColor: AppColors.yellowColor),
-                      IconTextWidget(
-                          icon: Icons.circle_sharp,
-                          text: "Not Normal",
-                          iconColor: AppColors.grey),
-                      IconTextWidget(
-                          icon: Icons.circle_sharp,
-                          text: "Less Normal",
-                          iconColor: AppColors.nearlyWhite),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: Text(
+                      "4.5",
+                      style: themeData.textTheme.titleMedium!
+                          .copyWith(color: AppColors.mainColor),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: Text(
+                      "1287 comments",
+                      style: themeData.textTheme.titleMedium!.copyWith(
+                        color: AppColors.mainColor,
+                      ),
+                    ),
                   ),
                 ],
               ),
-            ),
+            );
+          }),
+          const Row(
+            children: [
+              IconTextWidget(
+                  icon: Icons.circle_sharp,
+                  text: "Normal",
+                  iconColor: AppColors.yellowColor),
+              IconTextWidget(
+                  icon: Icons.circle_sharp,
+                  text: "Not Normal",
+                  iconColor: AppColors.grey),
+              IconTextWidget(
+                  icon: Icons.circle_sharp,
+                  text: "Less Normal",
+                  iconColor: AppColors.nearlyWhite),
+            ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

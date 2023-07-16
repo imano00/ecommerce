@@ -2,18 +2,20 @@ import 'package:core_management_v2/core_management_v2.dart';
 import 'package:ecommerce/screens/home/food_page_body.dart';
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MainFoodPage extends StatefulWidget {
   MainFoodPage({Key? key}) : super(key: key);
 
   @override
-  State<MainFoodPage> createState() => _MainFoodPageState();
+  State<MainFoodPage> createState() => MainFoodPageState();
 }
 
-class _MainFoodPageState extends State<MainFoodPage> {
+class MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = context.themeData;
+    final size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
