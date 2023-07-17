@@ -2,15 +2,14 @@ import 'package:core_management_v2/core_management_v2.dart';
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class TextCustomTheme{
-
+class TextCustomTheme {
   TextTheme _textTheme(
-      ThemeData themeData,
-      TextStyle textStyle,
-      Color primaryColor,
-      bool darkMode,
-      bool darkColor,
-      ) {
+    ThemeData themeData,
+    TextStyle textStyle,
+    Color primaryColor,
+    bool darkMode,
+    bool darkColor,
+  ) {
     return themeData.textTheme.copyWith(
       displayLarge: _displayLarge(themeData, darkMode),
       displayMedium: _displayMedium(themeData, darkMode),
@@ -69,9 +68,9 @@ class TextCustomTheme{
   }
 
   TextStyle _titleLarge(
-      ThemeData themeData,
-      bool darkMode,
-      ) {
+    ThemeData themeData,
+    bool darkMode,
+  ) {
     return themeData.textTheme.titleLarge!.copyWith(
       color: darkMode ? AppColors.nearlyWhite : Colors.black,
       // fontFamily: "OpenSansBold",
