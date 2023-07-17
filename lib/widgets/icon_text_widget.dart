@@ -20,14 +20,19 @@ class IconTextWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Icon(
             icon,
+            color: iconColor ?? AppColors.iconColor1,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8.0),
+            padding: const EdgeInsets.only(left: 5.0),
             child: Text(
               text,
+              style: TextStyle(
+                color: textColor ?? AppColors.nearlyWhite,
+              ),
             ),
           )
         ],
