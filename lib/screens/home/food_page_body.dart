@@ -24,7 +24,7 @@ class FoodPageBodyState extends State<FoodPageBody> {
     pageController.addListener(() {
       setState(() {
         currentPage = pageController.page!;
-        print("Current value is$currentPage");
+        print("Current value is $currentPage");
       });
     });
   }
@@ -40,149 +40,148 @@ class FoodPageBodyState extends State<FoodPageBody> {
     final ThemeData themeData = context.themeData;
     final size = MediaQuery.of(context).size;
 
+    return Container(
+      color: Colors.transparent,
+      height: size.height * 0.4,
+      child: _buildPageItem(),
+    );
+  }
+
+  Widget _buildPageItem() {
+    final ThemeData themeData = context.themeData;
+    final size = MediaQuery.of(context).size;
+
     return Swiper(
         itemCount: 5,
         viewportFraction: 0.85,
         scale: 0.9,
-        pagination: SwiperCustomPagination(
-            builder: (BuildContext context, SwiperPluginConfig config) {
-          return Align(
-            alignment: Alignment.bottomCenter,
-            child: SmoothPageIndicator(
-              controller: pageController,
-              count: 5,
-              effect: const WormEffect(
-                activeDotColor: AppColors.mainColor,
-                dotColor: AppColors.grey,
+        pagination: const SwiperPagination(
+            builder: DotSwiperPaginationBuilder(
+          color: AppColors.nearlyWhite,
+          activeColor: AppColors.mainColor,
+        )),
+        //TODO use custom pagination instead of default
+        // pagination: SwiperCustomPagination(
+        //     builder: (BuildContext context, SwiperPluginConfig config) {
+        //   return Align(
+        //     alignment: Alignment.center,
+        //     child: SmoothPageIndicator(
+        //       controller: pageController,
+        //       count: 5,
+        //       effect: const WormEffect(
+        //         activeDotColor: AppColors.mainColor,
+        //         dotColor: AppColors.grey,
+        //       ),
+        //     ),
+        //   );
+        // }),
+        itemBuilder: (context, index) {
+          return Stack(children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: size.height * 0.3,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.transparent,
+                    image: const DecorationImage(
+                        image: AssetImage(
+                          "assets/images/pexels-cats-coming-920220.jpg",
+                        ),
+                        fit: BoxFit.cover)),
               ),
             ),
-          );
-        }),
-        itemBuilder: (context, index) {
-          return index == 0
-          ? Container(
-            color: Colors.transparent,
-            height: size.height * 0.4,
-            child: PageView.builder(
-                controller: pageController,
-                itemBuilder: (context, index) {
-                  return _buildPageItem();
-                }),
-          ) : const Text("Loading");
-        },);
-  }
-
-  Widget? _buildPageItem() {
-    final ThemeData themeData = context.themeData;
-    final size = MediaQuery.of(context).size;
-
-    return Stack(children: [
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          height: size.height * 0.3,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              color: Colors.transparent,
-              image: const DecorationImage(
-                  image: AssetImage(
-                    "assets/images/pexels-cats-coming-920220.jpg",
-                  ),
-                  fit: BoxFit.contain)),
-        ),
-      ),
-      Align(
-        alignment: Alignment.bottomCenter,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            height: size.height * 0.15,
-            width: size.width * 0.85,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              color: AppColors.grey,
-            ),
-            child: Column(
-              children: [
-                const Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 20.0, top: 8),
-                    child: Text("Ini container bawah",
-                        style: TextStyle(color: Colors.white)),
-                  ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                clipBehavior: Clip.hardEdge,
+                margin: const EdgeInsets.all(8),
+                height: size.height * 0.15,
+                width: size.width * 0.75,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: AppColors.grey,
                 ),
-                // FiveStarRatingRive(),
-                LayoutBuilder(builder: (context, constraints) {
-                  return Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Flexible(
-                          flex: 2,
-                          fit: FlexFit.loose,
-                          child: Wrap(
-                            children: List.generate(
-                              5,
-                              (index) => const Icon(
-                                Icons.star,
-                                color: AppColors.mainColor,
-                                size: 15,
+                child: Column(
+                  children: [
+                    const Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 20.0, top: 8),
+                        child: Text("Ini container bawah",
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
+                    // FiveStarRatingRive(),
+                    LayoutBuilder(builder: (context, constraints) {
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Flexible(
+                              flex: 2,
+                              fit: FlexFit.loose,
+                              child: Wrap(
+                                children: List.generate(
+                                  5,
+                                  (index) => const Icon(
+                                    Icons.star,
+                                    color: AppColors.mainColor,
+                                    size: 15,
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                        Flexible(
-                          flex: 1,
-                          fit: FlexFit.loose,
-                          child: Text(
-                            "4.5",
-                            style: themeData.textTheme.titleMedium!
-                                .copyWith(color: AppColors.mainColor),
-                          ),
-                        ),
-                        Flexible(
-                          flex: 3,
-                          fit: FlexFit.loose,
-                          child: Text(
-                            "1287 comments",
-                            style: themeData.textTheme.titleMedium!.copyWith(
-                              color: AppColors.mainColor,
+                            Flexible(
+                              flex: 1,
+                              fit: FlexFit.loose,
+                              child: Text(
+                                "4.5",
+                                style: themeData.textTheme.titleMedium!
+                                    .copyWith(color: AppColors.mainColor),
+                              ),
                             ),
-                          ),
+                            Flexible(
+                              flex: 3,
+                              fit: FlexFit.loose,
+                              child: Text(
+                                "1287 comments",
+                                style:
+                                    themeData.textTheme.titleMedium!.copyWith(
+                                  color: AppColors.mainColor,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
+                      );
+                    }),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconTextWidget(
+                            icon: Icons.circle_sharp,
+                            text: "huehue",
+                            textColor: Colors.white,
+                            iconColor: AppColors.yellowColor),
+                        IconTextWidget(
+                            icon: Icons.pin_drop,
+                            text: "2.00 km",
+                            textColor: Colors.white,
+                            iconColor: AppColors.nearlyWhite),
+                        IconTextWidget(
+                            icon: Icons.timer_rounded,
+                            text: "30 min",
+                            textColor: Colors.white,
+                            iconColor: AppColors.nearlyWhite),
                       ],
                     ),
-                  );
-                }),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconTextWidget(
-                        icon: Icons.circle_sharp,
-                        text: "huehue",
-                        textColor: Colors.white,
-                        iconColor: AppColors.yellowColor),
-                    IconTextWidget(
-                        icon: Icons.pin_drop,
-                        text: "2.00 km",
-                        textColor: Colors.white,
-                        iconColor: AppColors.nearlyWhite),
-                    IconTextWidget(
-                        icon: Icons.timer_rounded,
-                        text: "30 min",
-                        textColor: Colors.white,
-                        iconColor: AppColors.nearlyWhite),
                   ],
                 ),
-              ],
+              ),
             ),
-          ),
-        ),
-      ),
-    ]);
-
-    throw '';
+          ]);
+        });
   }
 }
