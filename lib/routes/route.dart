@@ -2,7 +2,7 @@ import 'dart:async';
 
 // import 'package:auth_management/auth_management.dart';
 // import 'package:example/services/auth_service.dart';
-import 'package:ecommerce/screens/home/food_page_body.dart';
+import 'package:ecommerce/widgets/food_carousel.dart';
 import 'package:flutter/cupertino.dart';
 
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,6 +23,6 @@ class MainFoodPageRoute extends GoRouteData {
 class FoodPageBodyRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const FoodPageBody();
+    return const FoodCarousel();
   }
 }

@@ -1,5 +1,5 @@
 import 'package:ecommerce/routes/router_service.dart';
-import 'package:ecommerce/screens/home/food_page_body.dart';
+import 'package:ecommerce/widgets/food_carousel.dart';
 import 'package:ecommerce/screens/home/main_food_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -37,7 +37,7 @@ final router = GoRouter(
     ),
     GoRoute(
       path: "/food-page-body",
-      builder: (context, state) => const FoodPageBody(),
+      builder: (context, state) => const FoodCarousel(),
     )
   ],
 );

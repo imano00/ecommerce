@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class IconTextWidget extends StatelessWidget {
   final IconData icon;
+  final double? iconSize;
   final String text;
   final Color? textColor;
   final Color? iconColor;
@@ -12,7 +13,8 @@ class IconTextWidget extends StatelessWidget {
       required this.icon,
       required this.text,
       this.textColor,
-      this.iconColor})
+      this.iconColor,
+      this.iconSize})
       : super(key: key);
 
   @override
@@ -25,6 +27,7 @@ class IconTextWidget extends StatelessWidget {
           Icon(
             icon,
             color: iconColor ?? AppColors.iconColor1,
+            size: iconSize ?? 25.0,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 5.0),

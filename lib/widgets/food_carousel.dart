@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class FoodPageBody extends StatefulWidget {
-  const FoodPageBody({Key? key}) : super(key: key);
+class FoodCarousel extends StatefulWidget {
+  const FoodCarousel({Key? key}) : super(key: key);
 
   @override
-  State<FoodPageBody> createState() => FoodPageBodyState();
+  State<FoodCarousel> createState() => FoodCarouselState();
 }
 
-class FoodPageBodyState extends State<FoodPageBody> {
+class FoodCarouselState extends State<FoodCarousel> {
   PageController pageController = PageController(viewportFraction: 0.8);
   var currentPage = 0.0;
 
