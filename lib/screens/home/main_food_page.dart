@@ -1,4 +1,5 @@
 import 'package:core_management_v2/core_management_v2.dart';
+import 'package:ecommerce/screens/home/food_detail_screen.dart';
 import 'package:ecommerce/widgets/food_carousel.dart';
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:ecommerce/widgets/food_list_view.dart';
@@ -47,14 +48,16 @@ class MainFoodPageState extends State<MainFoodPage> {
             ],
           ),
         ),
-        body: const Column(
-          children: [
-            FoodCarousel(),
-            Text("huehue"),
-            Expanded(
-              child: FoodListView(),
-            ),
-          ],
-        ));
+        body: const FoodDetailScreen(),
+        // body: const Column(
+        //   children: [
+        //     FoodCarousel(),
+        //     Text("huehue"),
+        //     Expanded(
+        //       child: FoodListView(),
+        //     ),
+        //   ],
+        // )
+    );
   }
 }
