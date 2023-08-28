@@ -1,5 +1,6 @@
 import 'package:ecommerce/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class IconTextWidget extends StatelessWidget {
   final IconData icon;
@@ -35,6 +36,7 @@ class IconTextWidget extends StatelessWidget {
               text,
               style: TextStyle(
                 color: textColor ?? AppColors.nearlyWhite,
+                fontFamily: GoogleFonts.dmSerifDisplay().fontFamily,
               ),
             ),
           )

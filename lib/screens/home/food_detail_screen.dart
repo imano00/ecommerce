@@ -1,4 +1,5 @@
 import 'package:ecommerce/utils/app_colors.dart';
+import 'package:ecommerce/widgets/icon_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -69,6 +70,32 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                           "Sushi (Food Name)",
                           style: GoogleFonts.dmSerifDisplay(fontSize: 28),
                         ),
+                      ),
+                    ],
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      IconTextWidget(
+                        icon: Icons.circle_sharp,
+                        text: "huehue",
+                        textColor: Colors.amber,
+                        iconColor: AppColors.yellowColor,
+                        iconSize: 15.0,
+                      ),
+                      IconTextWidget(
+                        icon: Icons.pin_drop,
+                        text: "2.00 km",
+                        textColor: Colors.amber,
+                        iconColor: AppColors.darkGrey,
+                        iconSize: 15.0,
+                      ),
+                      IconTextWidget(
+                        icon: Icons.timer_rounded,
+                        text: "30 min",
+                        textColor: Colors.amber,
+                        iconColor: AppColors.darkGrey,
+                        iconSize: 15.0,
                       ),
                     ],
                   ),
